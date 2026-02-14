@@ -1,0 +1,36 @@
+# Matrix Sticker Collection & Curation Tool Configuration
+
+# Matrix connection settings
+matrix:
+  # Homeserver URL (e.g., https://matrix.org)
+  homeserver: "https://matrix.org"
+
+  # User ID (e.g., @morgan:matrix.org)
+  # Set via login command or manually
+  user_id: ""
+
+  # Device ID (generated during login)
+  device_id: ""
+
+  # Access token (generated during login)
+  # Can also be set via MATRIX_ACCESS_TOKEN env var
+  access_token: ""
+
+# Anthropic API settings for alt-text generation
+anthropic:
+  # API key for Anthropic Claude
+  # Can also be set via ANTHROPIC_API_KEY env var
+  api_key: ""
+
+  # Model to use for vision/alt-text generation
+  # claude-3-haiku-20240307 is cost-efficient for sticker descriptions
+  model: "claude-3-haiku-20240307"
+
+  # Maximum tokens for alt-text generation
+  max_tokens: 100
+
+# Storage settings
+storage:
+  # Directory for data files (collection.json, packs.json)
+  # Default: ~/.config/stickerbook (CLI) or /data (Docker)
+  data_dir: ""

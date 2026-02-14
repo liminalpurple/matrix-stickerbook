@@ -1,0 +1,37 @@
+# Matrix Stickerbook - Docker Compose Deployment
+#
+# To deploy:
+#   1. Create your data directory (e.g. /path/to/stickerbook/data)
+#   2. Log in using: docker run --rm -it -v /path/to/stickerbook/data:/data \
+#        ghcr.io/liminalpurple/matrix-stickerbook:latest login
+#   3. Set your Anthropic API key in the environment section below
+#   4. Update the volumes path below to match your data directory
+#   5. docker compose up -d
+
+services:
+  stickerbook:
+    container_name: stickerbook
+    image: ghcr.io/liminalpurple/matrix-stickerbook:latest
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+
+    # Network mode: host for Matrix connectivity
+    network_mode: host
+
+    # Restart policy
+    restart: unless-stopped
+
+    # Data volume
+    # All persistent data lives here: config.yaml, collection.json, packs.json
+    volumes:
+      - /path/to/stickerbook/data:/data
+
+    # Environment variables
+    environment:
+      - STICKERBOOK_CONFIG_DIR=/data
+      - ANTHROPIC_API_KEY=your-api-key-here  # Required for alt-text generation

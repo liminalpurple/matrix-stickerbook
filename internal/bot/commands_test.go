@@ -57,7 +57,7 @@ func setupTestBot(t *testing.T) (*Bot, string) {
 // TestExecuteCommand_PackList verifies pack list command
 func TestExecuteCommand_PackList(t *testing.T) {
 	bot, tmpDir := setupTestBot(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 	defer bot.Stop()
 
 	// Initially no packs - should show unsorted (0)
@@ -87,7 +87,7 @@ func TestExecuteCommand_PackList(t *testing.T) {
 // TestExecuteCommand_PackCreate verifies pack creation
 func TestExecuteCommand_PackCreate(t *testing.T) {
 	bot, tmpDir := setupTestBot(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 	defer bot.Stop()
 
 	result := bot.executeCommand(context.Background(), "!sticker pack create favourites")
@@ -108,7 +108,7 @@ func TestExecuteCommand_PackCreate(t *testing.T) {
 // TestExecuteCommand_PackCreateWithSpaces verifies name sanitization
 func TestExecuteCommand_PackCreateWithSpaces(t *testing.T) {
 	bot, tmpDir := setupTestBot(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 	defer bot.Stop()
 
 	result := bot.executeCommand(context.Background(), "!sticker pack create Funny Memes")
@@ -126,7 +126,7 @@ func TestExecuteCommand_PackCreateWithSpaces(t *testing.T) {
 // TestExecuteCommand_PackCreateUnsorted verifies "unsorted" is forbidden
 func TestExecuteCommand_PackCreateUnsorted(t *testing.T) {
 	bot, tmpDir := setupTestBot(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 	defer bot.Stop()
 
 	result := bot.executeCommand(context.Background(), "!sticker pack create unsorted")
@@ -144,7 +144,7 @@ func TestExecuteCommand_PackCreateUnsorted(t *testing.T) {
 // TestExecuteCommand_PackAdd verifies adding stickers to pack
 func TestExecuteCommand_PackAdd(t *testing.T) {
 	bot, tmpDir := setupTestBot(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 	defer bot.Stop()
 
 	// Create pack and sticker
@@ -177,7 +177,7 @@ func TestExecuteCommand_PackAdd(t *testing.T) {
 // TestExecuteCommand_PackRemove verifies removing stickers from pack
 func TestExecuteCommand_PackRemove(t *testing.T) {
 	bot, tmpDir := setupTestBot(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 	defer bot.Stop()
 
 	// Create pack and sticker, add to pack
@@ -213,7 +213,7 @@ func TestExecuteCommand_PackRemove(t *testing.T) {
 // TestExecuteCommand_PackShow verifies showing pack contents
 func TestExecuteCommand_PackShow(t *testing.T) {
 	bot, tmpDir := setupTestBot(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 	defer bot.Stop()
 
 	// Create pack with sticker
@@ -243,7 +243,7 @@ func TestExecuteCommand_PackShow(t *testing.T) {
 // TestExecuteCommand_ListUnsorted verifies listing unsorted stickers
 func TestExecuteCommand_ListUnsorted(t *testing.T) {
 	bot, tmpDir := setupTestBot(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 	defer bot.Stop()
 
 	// Initially no stickers
@@ -272,7 +272,7 @@ func TestExecuteCommand_ListUnsorted(t *testing.T) {
 // TestExecuteCommand_InvalidCommands verifies error handling
 func TestExecuteCommand_InvalidCommands(t *testing.T) {
 	bot, tmpDir := setupTestBot(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 	defer bot.Stop()
 
 	tests := []struct {

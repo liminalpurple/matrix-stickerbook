@@ -11,6 +11,7 @@ import (
 	_ "image/jpeg" // Import for image format support
 	_ "image/png"  // Import for image format support
 
+	_ "golang.org/x/image/webp" // Import for WebP support
 	"maunium.net/go/mautrix/id"
 )
 

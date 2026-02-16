@@ -62,7 +62,7 @@ func NewBot(matrixClient *matrix.Client, llmClient *llm.Client, cfg *config.Conf
 	}
 
 	// Set store on client so it uses our next_batch
-	matrixClient.Client.Store = store
+	matrixClient.Store = store
 
 	bot := &Bot{
 		client:     matrixClient,
@@ -124,7 +124,7 @@ func (b *Bot) Run() error {
 		case <-firstSyncCheck.C:
 			// Check if we have a next_batch from first sync
 			if !savedFirst {
-				if nb, err := b.client.Client.Store.LoadNextBatch(context.Background(), b.client.UserID); err == nil && nb != "" && nb != b.nextBatch {
+				if nb, err := b.client.Store.LoadNextBatch(context.Background(), b.client.UserID); err == nil && nb != "" && nb != b.nextBatch {
 					b.nextBatch = nb
 					log.Printf("First sync completed, next_batch: %s", nb[:min(len(nb), 20)])
 					if err := b.saveNextBatch(); err != nil {
@@ -180,7 +180,7 @@ func (b *Bot) Stop() {
 // saveNextBatch persists the current next_batch token to config
 func (b *Bot) saveNextBatch() error {
 	// Read latest next_batch from store (updated by sync)
-	if nb, err := b.client.Client.Store.LoadNextBatch(context.Background(), b.client.UserID); err == nil {
+	if nb, err := b.client.Store.LoadNextBatch(context.Background(), b.client.UserID); err == nil {
 		b.nextBatch = nb
 	}
 	b.config.Matrix.NextBatch = b.nextBatch

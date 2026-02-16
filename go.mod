@@ -7,6 +7,7 @@ require (
 	github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
+	golang.org/x/image v0.36.0
 	golang.org/x/term v0.40.0
 	maunium.net/go/mautrix v0.26.3
 )

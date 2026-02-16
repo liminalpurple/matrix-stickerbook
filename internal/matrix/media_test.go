@@ -43,7 +43,7 @@ func TestHashImage_Format(t *testing.T) {
 
 	// Verify it's valid hex
 	for _, c := range hash {
-		if !((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f')) {
+		if (c < '0' || c > '9') && (c < 'a' || c > 'f') {
 			t.Errorf("Hash contains invalid hex character: %c", c)
 			break
 		}
@@ -61,7 +61,7 @@ func TestHashImage_EmptyData(t *testing.T) {
 
 	// Verify it's valid hex
 	for _, c := range hash {
-		if !((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f')) {
+		if (c < '0' || c > '9') && (c < 'a' || c > 'f') {
 			t.Errorf("Hash contains invalid hex character: %c", c)
 			break
 		}

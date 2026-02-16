@@ -24,12 +24,14 @@ func setupTestBot(t *testing.T) (*Bot, string) {
 
 	// Set STICKERBOOK_CONFIG_DIR to temp directory to prevent overwriting real config
 	oldConfigDir := os.Getenv("STICKERBOOK_CONFIG_DIR")
-	os.Setenv("STICKERBOOK_CONFIG_DIR", tmpDir)
+	if err := os.Setenv("STICKERBOOK_CONFIG_DIR", tmpDir); err != nil {
+		t.Fatalf("Failed to set test env: %v", err)
+	}
 	t.Cleanup(func() {
 		if oldConfigDir != "" {
-			os.Setenv("STICKERBOOK_CONFIG_DIR", oldConfigDir)
+			_ = os.Setenv("STICKERBOOK_CONFIG_DIR", oldConfigDir)
 		} else {
-			os.Unsetenv("STICKERBOOK_CONFIG_DIR")
+			_ = os.Unsetenv("STICKERBOOK_CONFIG_DIR")
 		}
 	})
 

@@ -9,7 +9,7 @@ import (
 // TestAddSticker_NewSticker verifies adding a new sticker works
 func TestAddSticker_NewSticker(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	sticker := testSticker("sha256:abc123")
 	if err := AddSticker(tmpDir, sticker); err != nil {
@@ -32,7 +32,7 @@ func TestAddSticker_NewSticker(t *testing.T) {
 // TestAddSticker_Duplicate verifies that adding the same sticker ID updates it
 func TestAddSticker_Duplicate(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	sticker := testSticker("sha256:abc123")
 	sticker.GeneratedAltText = "first version"
@@ -65,7 +65,7 @@ func TestAddSticker_Duplicate(t *testing.T) {
 // TestGetSticker_NotFound verifies error when sticker doesn't exist
 func TestGetSticker_NotFound(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	_, err := GetSticker(tmpDir, "sha256:doesnotexist")
 	if err == nil {
@@ -76,7 +76,7 @@ func TestGetSticker_NotFound(t *testing.T) {
 // TestListStickers_Empty verifies empty collection returns empty list
 func TestListStickers_Empty(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	stickers, err := ListStickers(tmpDir)
 	if err != nil {
@@ -91,7 +91,7 @@ func TestListStickers_Empty(t *testing.T) {
 // TestUpdateAltText_NotFound verifies error when sticker doesn't exist
 func TestUpdateAltText_NotFound(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	err := UpdateAltText(tmpDir, "sha256:doesnotexist", "new text")
 	if err == nil {
@@ -102,7 +102,7 @@ func TestUpdateAltText_NotFound(t *testing.T) {
 // TestUpdateAltText_Success verifies alt-text update works
 func TestUpdateAltText_Success(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	sticker := testSticker("sha256:abc123")
 	sticker.GeneratedAltText = "original"
@@ -127,7 +127,7 @@ func TestUpdateAltText_Success(t *testing.T) {
 // TestCreatePack_Success verifies pack creation
 func TestCreatePack_Success(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	if err := CreatePack(tmpDir, "favourites", "My Favourites"); err != nil {
 		t.Fatalf("Failed to create pack: %v", err)
@@ -152,7 +152,7 @@ func TestCreatePack_Success(t *testing.T) {
 // TestCreatePack_Duplicate verifies error when pack already exists
 func TestCreatePack_Duplicate(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	if err := CreatePack(tmpDir, "favourites", "My Favourites"); err != nil {
 		t.Fatalf("Failed to create pack: %v", err)
@@ -167,7 +167,7 @@ func TestCreatePack_Duplicate(t *testing.T) {
 // TestGetPack_NotFound verifies error when pack doesn't exist
 func TestGetPack_NotFound(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	_, err := GetPack(tmpDir, "doesnotexist")
 	if err == nil {
@@ -178,7 +178,7 @@ func TestGetPack_NotFound(t *testing.T) {
 // TestAddToPack_StickerNotInCollection verifies error when sticker doesn't exist
 func TestAddToPack_StickerNotInCollection(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	if err := CreatePack(tmpDir, "favourites", "My Favourites"); err != nil {
 		t.Fatalf("Failed to create pack: %v", err)
@@ -193,7 +193,7 @@ func TestAddToPack_StickerNotInCollection(t *testing.T) {
 // TestAddToPack_PackNotFound verifies error when pack doesn't exist
 func TestAddToPack_PackNotFound(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	sticker := testSticker("sha256:abc123")
 	if err := AddSticker(tmpDir, sticker); err != nil {
@@ -209,7 +209,7 @@ func TestAddToPack_PackNotFound(t *testing.T) {
 // TestAddToPack_BidirectionalReferences verifies pack ↔ sticker references stay consistent
 func TestAddToPack_BidirectionalReferences(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	// Add stickers
 	sticker1 := testSticker("sha256:sticker1")
@@ -261,7 +261,7 @@ func TestAddToPack_BidirectionalReferences(t *testing.T) {
 // TestAddToPack_Duplicate verifies adding same sticker twice doesn't duplicate
 func TestAddToPack_Duplicate(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	sticker := testSticker("sha256:abc123")
 	if err := AddSticker(tmpDir, sticker); err != nil {
@@ -293,7 +293,7 @@ func TestAddToPack_Duplicate(t *testing.T) {
 // TestRemoveFromPack_Success verifies removing sticker from pack
 func TestRemoveFromPack_Success(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	sticker := testSticker("sha256:abc123")
 	if err := AddSticker(tmpDir, sticker); err != nil {
@@ -335,7 +335,7 @@ func TestRemoveFromPack_Success(t *testing.T) {
 // TestRemoveFromPack_NotInPack verifies removing sticker that isn't in pack is safe
 func TestRemoveFromPack_NotInPack(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	sticker := testSticker("sha256:abc123")
 	if err := AddSticker(tmpDir, sticker); err != nil {
@@ -355,7 +355,7 @@ func TestRemoveFromPack_NotInPack(t *testing.T) {
 // TestUpdatePublished verifies tracking published rooms
 func TestUpdatePublished(t *testing.T) {
 	tmpDir := setupTestDir(t)
-	defer os.RemoveAll(tmpDir)
+	defer func() { _ = os.RemoveAll(tmpDir) }()
 
 	if err := CreatePack(tmpDir, "favourites", "My Favourites"); err != nil {
 		t.Fatalf("Failed to create pack: %v", err)

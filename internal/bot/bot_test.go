@@ -38,14 +38,16 @@ func setupTestEnv(t *testing.T) func() {
 
 	// Set STICKERBOOK_CONFIG_DIR to temp directory
 	oldConfigDir := os.Getenv("STICKERBOOK_CONFIG_DIR")
-	os.Setenv("STICKERBOOK_CONFIG_DIR", getTestStorageDir())
+	if err := os.Setenv("STICKERBOOK_CONFIG_DIR", getTestStorageDir()); err != nil {
+		t.Fatalf("Failed to set test env: %v", err)
+	}
 
 	// Return cleanup function
 	return func() {
 		if oldConfigDir != "" {
-			os.Setenv("STICKERBOOK_CONFIG_DIR", oldConfigDir)
+			_ = os.Setenv("STICKERBOOK_CONFIG_DIR", oldConfigDir)
 		} else {
-			os.Unsetenv("STICKERBOOK_CONFIG_DIR")
+			_ = os.Unsetenv("STICKERBOOK_CONFIG_DIR")
 		}
 	}
 }

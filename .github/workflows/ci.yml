@@ -20,29 +20,16 @@ jobs:
     name: Test & Lint
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
 
-      - name: Setup Go
-        uses: actions/setup-go@v6
+      - uses: actions/setup-go@v6
         with:
           go-version-file: 'go.mod'
           cache: true
 
-      - name: Download dependencies
-        run: go mod download
-
-      - name: Build
-        run: go build ./...
-
-      - name: Run tests
-        run: go test -v ./...
-
-      - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v9
-        with:
-          version: latest
-          install-mode: goinstall
+      - uses: j178/prek-action@v2
+        env:
+          SKIP: go-get-update
 
   docker:
     name: Build & Push Container

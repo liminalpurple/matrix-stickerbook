@@ -3,7 +3,7 @@ module github.com/liminalpurple/matrix-stickerbook
 go 1.26.2
 
 require (
-	github.com/anthropics/anthropic-sdk-go v1.37.0
+	github.com/anthropics/anthropic-sdk-go v1.38.0
 	github.com/gomarkdown/markdown v0.0.0-20260412113850-134a5b2cce7f
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
@@ -14,9 +14,13 @@ require (
 
 require (
 	filippo.io/edwards25519 v1.2.0 // indirect
+	github.com/bahlo/generic-list-go v0.2.0 // indirect
+	github.com/buger/jsonparser v1.1.2 // indirect
 	github.com/fsnotify/fsnotify v1.9.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
+	github.com/invopop/jsonschema v0.13.0 // indirect
+	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.21 // indirect
 	github.com/pelletier/go-toml/v2 v2.3.0 // indirect
@@ -30,6 +34,7 @@ require (
 	github.com/tidwall/match v1.2.0 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/tidwall/sjson v1.2.5 // indirect
+	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect
 	go.mau.fi/util v0.9.8 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/crypto v0.50.0 // indirect
@@ -39,4 +44,5 @@ require (
 	golang.org/x/sys v0.43.0 // indirect
 	golang.org/x/text v0.36.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

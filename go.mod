@@ -3,12 +3,12 @@ module github.com/liminalpurple/matrix-stickerbook
 go 1.26.2
 
 require (
-	github.com/anthropics/anthropic-sdk-go v1.38.0
+	github.com/anthropics/anthropic-sdk-go v1.42.0
 	github.com/gomarkdown/markdown v0.0.0-20260412113850-134a5b2cce7f
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
-	golang.org/x/image v0.39.0
-	golang.org/x/term v0.42.0
+	golang.org/x/image v0.40.0
+	golang.org/x/term v0.43.0
 	maunium.net/go/mautrix v0.27.0
 )
 
@@ -29,6 +29,7 @@ require (
 	github.com/spf13/afero v1.15.0 // indirect
 	github.com/spf13/cast v1.10.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
+	github.com/standard-webhooks/standard-webhooks/libraries v0.0.0-20260508151727-1282bb917829 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.2.0 // indirect
@@ -41,8 +42,8 @@ require (
 	golang.org/x/exp v0.0.0-20260410095643-746e56fc9e2f // indirect
 	golang.org/x/net v0.53.0 // indirect
 	golang.org/x/sync v0.20.0 // indirect
-	golang.org/x/sys v0.43.0 // indirect
-	golang.org/x/text v0.36.0 // indirect
+	golang.org/x/sys v0.44.0 // indirect
+	golang.org/x/text v0.37.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

@@ -136,3 +136,15 @@ func (c *Client) PublishPack(ctx context.Context, dataDir string, packName strin
 
 	return nil
 }
+
+// UnpublishPack clears a sticker pack's MSC2545 state event in a Matrix room
+// by sending empty content at the same (type, state_key). Does not touch
+// local published-rooms tracking — callers handle that separately so a
+// tombstoned room can still be cleared from our list.
+func (c *Client) UnpublishPack(ctx context.Context, packName string, roomID id.RoomID) error {
+	_, err := c.SendStateEvent(ctx, roomID, event.Type{Type: "im.ponies.room_emotes", Class: event.StateEventType}, packName, struct{}{})
+	if err != nil {
+		return fmt.Errorf("failed to send state event: %w", err)
+	}
+	return nil
+}

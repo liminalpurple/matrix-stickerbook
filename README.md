@@ -30,6 +30,7 @@ All commands are plain text messages in any Matrix room the bot can see:
 | `!sticker pack avatar <pack> <mxc>`   | Set pack icon                                   |
 | `!sticker pack usage <pack> <type>`   | Set default usage (sticker/emoticon/both/reset) |
 | `!sticker pack publish <pack> [room]` | Publish to room (or republish to all)           |
+| `!sticker pack unpublish <pack> <room>` | Clear pack from room and stop republishing    |
 
 ## Getting started
 

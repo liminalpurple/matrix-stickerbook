@@ -214,6 +214,27 @@ func UpdatePublished(dataDir string, packName string, roomID string, stateKey st
 	return fmt.Errorf("pack not found: %s", packName)
 }
 
+// RemovePublished removes a room from a pack's published-rooms tracking.
+// Returns an error if the pack doesn't exist or the room isn't tracked.
+func RemovePublished(dataDir string, packName string, roomID string) error {
+	packsData, err := LoadPacks(dataDir)
+	if err != nil {
+		return fmt.Errorf("failed to load packs: %w", err)
+	}
+
+	for i, pack := range packsData.Packs {
+		if pack.Name == packName {
+			if _, ok := packsData.Packs[i].PublishedRooms[roomID]; !ok {
+				return fmt.Errorf("room %s is not in published list for pack %s", roomID, packName)
+			}
+			delete(packsData.Packs[i].PublishedRooms, roomID)
+			return SavePacks(dataDir, packsData)
+		}
+	}
+
+	return fmt.Errorf("pack not found: %s", packName)
+}
+
 // SetPackAvatar sets the avatar URL for a pack
 func SetPackAvatar(dataDir string, packName string, avatarURL string) error {
 	packsData, err := LoadPacks(dataDir)

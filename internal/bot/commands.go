@@ -64,7 +64,8 @@ func (b *Bot) showHelp() string {
 		"- !sticker pack remove <pack> <sticker-id> - Remove sticker from pack\n" +
 		"- !sticker pack avatar <pack> <mxc-uri> - Set pack icon\n" +
 		"- !sticker pack usage <pack> <type> - Set default usage (sticker/emoticon/both/reset)\n" +
-		"- !sticker pack publish <pack> [room-id] - Publish to room (or all saved)\n\n" +
+		"- !sticker pack publish <pack> [room-id] - Publish to room (or all saved)\n" +
+		"- !sticker pack unpublish <pack> <room-id> - Clear pack state event and stop publishing to this room\n\n" +
 		"Listing:\n\n" +
 		"- !sticker list unsorted - Show stickers not in any pack\n" +
 		"- !sticker show <sticker-id> - Show sticker with metadata and image\n\n" +
@@ -162,6 +163,11 @@ func (b *Bot) handlePackCommand(args []string) string {
 			roomID = args[2]
 		}
 		return b.packPublish(args[1], roomID)
+	case "unpublish":
+		if len(args) < 3 {
+			return "❌ Usage: !sticker pack unpublish <pack-name> <room-id>\n\nClears the pack's state event in the room and removes it from this pack's published list, so we stop trying to republish there (useful for tombstoned rooms)."
+		}
+		return b.packUnpublish(args[1], args[2])
 	case "avatar":
 		if len(args) < 3 {
 			return "❌ Usage: !sticker pack avatar <pack-name> <mxc-uri>\n\nExample: !sticker pack avatar favourites mxc://matrix.org/abc123..."
@@ -350,6 +356,34 @@ func (b *Bot) packPublish(packName, roomID string) string {
 	}
 
 	return fmt.Sprintf("✅ Published pack '%s' to room %s", packName, roomID)
+}
+
+// packUnpublish clears a pack's state event in a room and removes the room
+// from the pack's published-rooms tracking. The tracking removal happens even
+// if the state event send fails (e.g. tombstoned rooms returning M_FORBIDDEN).
+func (b *Bot) packUnpublish(packName, roomID string) string {
+	if !strings.HasPrefix(roomID, "!") {
+		return "❌ Invalid room ID - must start with !\n\nExample: !roomid:matrix.org"
+	}
+
+	pack, err := storage.GetPack(b.storageDir, packName)
+	if err != nil {
+		return fmt.Sprintf("❌ Error loading pack: %v", err)
+	}
+	if _, ok := pack.PublishedRooms[roomID]; !ok {
+		return fmt.Sprintf("❌ Pack '%s' is not published to room %s", packName, roomID)
+	}
+
+	stateErr := b.client.UnpublishPack(b.ctx, packName, id.RoomID(roomID))
+
+	if err := storage.RemovePublished(b.storageDir, packName, roomID); err != nil {
+		return fmt.Sprintf("❌ Error removing room from tracking: %v", err)
+	}
+
+	if stateErr != nil {
+		return fmt.Sprintf("⚠️ Removed %s from tracking for pack '%s' (state event clear failed: %v — room may be tombstoned)", roomID, packName, stateErr)
+	}
+	return fmt.Sprintf("✅ Unpublished pack '%s' from %s", packName, roomID)
 }
 
 // packAvatar sets the avatar for a pack

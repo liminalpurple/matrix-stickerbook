@@ -15,7 +15,7 @@ require (
 	github.com/spf13/viper v1.21.0
 	golang.org/x/image v0.40.0
 	golang.org/x/term v0.43.0
-	maunium.net/go/mautrix v0.27.0
+	maunium.net/go/mautrix v0.28.0
 )
 
 require (
@@ -42,7 +42,7 @@ require (
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/tidwall/sjson v1.2.5 // indirect
 	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect
-	go.mau.fi/util v0.9.8 // indirect
+	go.mau.fi/util v0.9.9 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/crypto v0.51.0 // indirect
 	golang.org/x/exp v0.0.0-20260508232706-74f9aab9d74a // indirect

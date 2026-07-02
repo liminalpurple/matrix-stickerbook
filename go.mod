@@ -1,21 +1,15 @@
 module github.com/liminalpurple/matrix-stickerbook
 
-go 1.26.3
-
-// jsonschema v0.14.0 changed Schema.Properties from wk8/go-ordered-map to
-// pb33f/ordered-map, but anthropic-sdk-go is still written against the wk8
-// type. Block the broken version until anthropic-sdk-go catches up; remove
-// this once it does.
-exclude github.com/invopop/jsonschema v0.14.0
+go 1.26.4
 
 require (
-	github.com/anthropics/anthropic-sdk-go v1.43.0
-	github.com/gomarkdown/markdown v0.0.0-20260417124207-7d523f7318df
+	github.com/anthropics/anthropic-sdk-go v1.55.1
+	github.com/gomarkdown/markdown v0.0.0-20260614204949-e08cff860f76
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
-	golang.org/x/image v0.40.0
-	golang.org/x/term v0.43.0
-	maunium.net/go/mautrix v0.27.0
+	golang.org/x/image v0.43.0
+	golang.org/x/term v0.44.0
+	maunium.net/go/mautrix v0.28.1
 )
 
 require (
@@ -25,11 +19,11 @@ require (
 	github.com/fsnotify/fsnotify v1.10.1 // indirect
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
-	github.com/invopop/jsonschema v0.13.0 // indirect
-	github.com/mailru/easyjson v0.9.2 // indirect
-	github.com/mattn/go-colorable v0.1.14 // indirect
+	github.com/invopop/jsonschema v0.14.0 // indirect
+	github.com/mattn/go-colorable v0.1.15 // indirect
 	github.com/mattn/go-isatty v0.0.22 // indirect
-	github.com/pelletier/go-toml/v2 v2.3.1 // indirect
+	github.com/pb33f/ordered-map/v2 v2.3.1 // indirect
+	github.com/pelletier/go-toml/v2 v2.4.2 // indirect
 	github.com/rs/zerolog v1.35.1 // indirect
 	github.com/sagikazarmark/locafero v0.12.0 // indirect
 	github.com/spf13/afero v1.15.0 // indirect
@@ -41,15 +35,14 @@ require (
 	github.com/tidwall/match v1.2.0 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/tidwall/sjson v1.2.5 // indirect
-	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect
-	go.mau.fi/util v0.9.8 // indirect
+	go.mau.fi/util v0.9.10 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/crypto v0.51.0 // indirect
-	golang.org/x/exp v0.0.0-20260508232706-74f9aab9d74a // indirect
-	golang.org/x/net v0.54.0 // indirect
-	golang.org/x/sync v0.20.0 // indirect
-	golang.org/x/sys v0.44.0 // indirect
-	golang.org/x/text v0.37.0 // indirect
+	go.yaml.in/yaml/v4 v4.0.0-rc.6 // indirect
+	golang.org/x/crypto v0.53.0 // indirect
+	golang.org/x/exp v0.0.0-20260611194520-c48552f49976 // indirect
+	golang.org/x/net v0.56.0 // indirect
+	golang.org/x/sync v0.21.0 // indirect
+	golang.org/x/sys v0.46.0 // indirect
+	golang.org/x/text v0.38.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

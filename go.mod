@@ -3,7 +3,7 @@ module github.com/liminalpurple/matrix-stickerbook
 go 1.26.4
 
 require (
-	github.com/anthropics/anthropic-sdk-go v1.55.1
+	github.com/anthropics/anthropic-sdk-go v1.56.0
 	github.com/gomarkdown/markdown v0.0.0-20260614204949-e08cff860f76
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0

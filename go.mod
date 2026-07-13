@@ -3,12 +3,12 @@ module github.com/liminalpurple/matrix-stickerbook
 go 1.26.4
 
 require (
-	github.com/anthropics/anthropic-sdk-go v1.55.1
+	github.com/anthropics/anthropic-sdk-go v1.57.0
 	github.com/gomarkdown/markdown v0.0.0-20260614204949-e08cff860f76
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
-	golang.org/x/image v0.43.0
-	golang.org/x/term v0.44.0
+	golang.org/x/image v0.44.0
+	golang.org/x/term v0.45.0
 	maunium.net/go/mautrix v0.28.1
 )
 
@@ -41,8 +41,8 @@ require (
 	golang.org/x/crypto v0.53.0 // indirect
 	golang.org/x/exp v0.0.0-20260611194520-c48552f49976 // indirect
 	golang.org/x/net v0.56.0 // indirect
-	golang.org/x/sync v0.21.0 // indirect
-	golang.org/x/sys v0.46.0 // indirect
-	golang.org/x/text v0.38.0 // indirect
+	golang.org/x/sync v0.22.0 // indirect
+	golang.org/x/sys v0.47.0 // indirect
+	golang.org/x/text v0.40.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 )

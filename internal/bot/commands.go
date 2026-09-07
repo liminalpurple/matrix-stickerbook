@@ -220,10 +220,10 @@ func (b *Bot) packList() string {
 	var result strings.Builder
 
 	// Always show "unsorted" meta-pack (even if 0)
-	result.WriteString(fmt.Sprintf("- unsorted (%d)\n", unsortedCount))
+	fmt.Fprintf(&result, "- unsorted (%d)\n", unsortedCount)
 
 	for _, pack := range packs {
-		result.WriteString(fmt.Sprintf("- %s (%d)\n", pack.Name, len(pack.StickerIDs)))
+		fmt.Fprintf(&result, "- %s (%d)\n", pack.Name, len(pack.StickerIDs))
 	}
 
 	// Add helpful message if no packs created yet
@@ -308,7 +308,7 @@ func (b *Bot) packShow(packName string) string {
 		}
 
 		// Use code formatting for ID, proper markdown ordered list
-		result.WriteString(fmt.Sprintf("%d. `%s` (:%s:) - %s\n", i+1, stickerID, name, altText))
+		fmt.Fprintf(&result, "%d. `%s` (:%s:) - %s\n", i+1, stickerID, name, altText)
 	}
 
 	return result.String()
@@ -434,14 +434,14 @@ func (b *Bot) stickerShow(stickerID string) string {
 	}
 
 	// Metadata as list
-	result.WriteString(fmt.Sprintf("- **ID:** `%s`\n", sticker.ID))
-	result.WriteString(fmt.Sprintf("- **Name:** `:%s:`\n", sticker.Name))
-	result.WriteString(fmt.Sprintf("- **Alt-text:** %s\n", altText))
-	result.WriteString(fmt.Sprintf("- **Size:** %dx%d, %s\n", sticker.Width, sticker.Height, sticker.MimeType))
+	fmt.Fprintf(&result, "- **ID:** `%s`\n", sticker.ID)
+	fmt.Fprintf(&result, "- **Name:** `:%s:`\n", sticker.Name)
+	fmt.Fprintf(&result, "- **Alt-text:** %s\n", altText)
+	fmt.Fprintf(&result, "- **Size:** %dx%d, %s\n", sticker.Width, sticker.Height, sticker.MimeType)
 
 	// Packs
 	if len(sticker.InPacks) > 0 {
-		result.WriteString(fmt.Sprintf("- **Packs:** %s\n", strings.Join(sticker.InPacks, ", ")))
+		fmt.Fprintf(&result, "- **Packs:** %s\n", strings.Join(sticker.InPacks, ", "))
 	} else {
 		result.WriteString("- **Packs:** (unsorted)\n")
 	}
@@ -450,7 +450,7 @@ func (b *Bot) stickerShow(stickerID string) string {
 	result.WriteString("\n")
 
 	// Markdown image for clients that support it
-	result.WriteString(fmt.Sprintf("![%s](%s)", altText, sticker.LocalMXC))
+	fmt.Fprintf(&result, "![%s](%s)", altText, sticker.LocalMXC)
 
 	return result.String()
 }
@@ -491,7 +491,7 @@ func (b *Bot) listUnsorted() string {
 		}
 
 		// Use code formatting for ID, proper markdown ordered list
-		result.WriteString(fmt.Sprintf("%d. `%s` (:%s:) - %s\n", i+1, sticker.ID, sticker.Name, altText))
+		fmt.Fprintf(&result, "%d. `%s` (:%s:) - %s\n", i+1, sticker.ID, sticker.Name, altText)
 	}
 
 	return result.String()

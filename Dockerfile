@@ -1,5 +1,12 @@
 # Build stage
-FROM golang:1.26 AS builder
+FROM golang:1.27 AS builder
+
+# The golang images set GOTOOLCHAIN=local, so the image's Go is the only Go
+# available and a go.mod requiring anything newer fails outright. Restore the
+# default so go.mod stays the single source of truth for the version: the tag
+# above keeps the toolchain in the image for the common case, and a go directive
+# that moves ahead of it is fetched rather than fatal.
+ENV GOTOOLCHAIN=auto
 
 WORKDIR /src
 

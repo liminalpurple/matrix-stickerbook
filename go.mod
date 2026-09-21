@@ -3,13 +3,13 @@ module github.com/liminalpurple/matrix-stickerbook
 go 1.27.1
 
 require (
-	github.com/anthropics/anthropic-sdk-go v1.71.0
+	github.com/anthropics/anthropic-sdk-go v1.73.0
 	github.com/gomarkdown/markdown v0.0.0-20260907091611-16791ada75cf
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
-	golang.org/x/image v0.45.0
-	golang.org/x/term v0.45.0
-	maunium.net/go/mautrix v0.30.0
+	golang.org/x/image v0.46.0
+	golang.org/x/term v0.46.0
+	maunium.net/go/mautrix v0.31.0
 )
 
 require (
@@ -35,13 +35,13 @@ require (
 	github.com/tidwall/match v1.2.0 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/tidwall/sjson v1.2.5 // indirect
-	go.mau.fi/util v0.10.0 // indirect
+	go.mau.fi/util v0.10.1 // indirect
 	go.yaml.in/yaml/v3 v3.0.5 // indirect
 	go.yaml.in/yaml/v4 v4.0.0-rc.6 // indirect
-	golang.org/x/crypto v0.56.0 // indirect
-	golang.org/x/exp v0.0.0-20260824195058-e88cd73687aa // indirect
-	golang.org/x/net v0.58.0 // indirect
-	golang.org/x/sync v0.22.0 // indirect
-	golang.org/x/sys v0.47.0 // indirect
-	golang.org/x/text v0.41.0 // indirect
+	golang.org/x/crypto v0.57.0 // indirect
+	golang.org/x/exp v0.0.0-20260908205506-85c1c2202aba // indirect
+	golang.org/x/net v0.59.0 // indirect
+	golang.org/x/sync v0.23.0 // indirect
+	golang.org/x/sys v0.48.0 // indirect
+	golang.org/x/text v0.42.0 // indirect
 )

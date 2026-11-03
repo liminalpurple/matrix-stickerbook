@@ -27,7 +27,7 @@ jobs:
           go-version-file: 'go.mod'
           cache: true
 
-      - uses: j178/prek-action@v2
+      - uses: j178/prek-action@v3.1.0
         env:
           SKIP: go-get-update
 
@@ -42,7 +42,7 @@ jobs:
 
       - name: Extract metadata
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |

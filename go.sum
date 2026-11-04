@@ -60,8 +60,8 @@ github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da h1:oI5xCqsCo564l
 github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da/go.mod h1:cIg4eruTrX1D+g88fzRXU5OdNfaM+9IcxsU14FzY7Hc=
 github.com/golang/protobuf v1.5.4 h1:i7eJL8qZTpSEXOPTxNKhASYpMn+8e5Q6AdndVa1dWek=
 github.com/golang/protobuf v1.5.4/go.mod h1:lnTiLA8Wa4RWRcIUkrtSVa5nRhsEGBg48fD6rSs7xps=
-github.com/gomarkdown/markdown v0.0.0-20261102130400-ab7f242c96ec h1:OaRAQ4TfhjZP0P4HtaJNlr6gSZZ+o9pkprqvBSYn12E=
-github.com/gomarkdown/markdown v0.0.0-20261102130400-ab7f242c96ec/go.mod h1:zLCvXLlUnS5tvOi4hpJgzzpJsq0+dliwn85VbPh1JbQ=
+github.com/gomarkdown/markdown v0.0.0-20261103173213-e298cbadad8e h1:eptpluYpKhn3iaX/vguInoQd54dzfPachOGNPKzv2W0=
+github.com/gomarkdown/markdown v0.0.0-20261103173213-e298cbadad8e/go.mod h1:zLCvXLlUnS5tvOi4hpJgzzpJsq0+dliwn85VbPh1JbQ=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
 github.com/google/jsonschema-go v0.4.2 h1:tmrUohrwoLZZS/P3x7ex0WAVknEkBZM46iALbcqoRA8=

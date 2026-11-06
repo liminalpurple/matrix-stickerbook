@@ -6,8 +6,8 @@ cloud.google.com/go/compute/metadata v0.5.0 h1:Zr0eK8JbFv6+Wi4ilXAR8FJ3wyNdpxHKJ
 cloud.google.com/go/compute/metadata v0.5.0/go.mod h1:aHnloV2TPI38yx4s9+wAZhHykWvVCfu7hQbF+9CWoiY=
 filippo.io/edwards25519 v1.2.0 h1:crnVqOiS4jqYleHd9vaKZ+HKtHfllngJIiOpNpoJsjo=
 filippo.io/edwards25519 v1.2.0/go.mod h1:xzAOLCNug/yB62zG1bQ8uziwrIqIuxhctzJT18Q77mc=
-github.com/anthropics/anthropic-sdk-go/v2 v2.6.0 h1:PC3phXXnJ4NtWmUcwdXskNh3dO7oWp8ILJcQbCINdX8=
-github.com/anthropics/anthropic-sdk-go/v2 v2.6.0/go.mod h1:LAOInMKgn6reTIrPvKXa5weyqzxsJkxSBuzhnxzukpQ=
+github.com/anthropics/anthropic-sdk-go/v2 v2.7.0 h1:wT62eHG7DL/ueUSJwjNQ0jRftJDSUyA2jg2wa7bNCO4=
+github.com/anthropics/anthropic-sdk-go/v2 v2.7.0/go.mod h1:LAOInMKgn6reTIrPvKXa5weyqzxsJkxSBuzhnxzukpQ=
 github.com/aws/aws-sdk-go-v2 v1.38.0 h1:UCRQ5mlqcFk9HJDIqENSLR3wiG1VTWlyUfLDEvY7RxU=
 github.com/aws/aws-sdk-go-v2 v1.38.0/go.mod h1:9Q0OoGQoboYIAJyslFyF1f5K1Ryddop8gqMhWx/n4Wg=
 github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.6.3 h1:tW1/Rkad38LA15X4UQtjXZXNKsCgkshC3EbmcUmghTg=
@@ -60,8 +60,8 @@ github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da h1:oI5xCqsCo564l
 github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da/go.mod h1:cIg4eruTrX1D+g88fzRXU5OdNfaM+9IcxsU14FzY7Hc=
 github.com/golang/protobuf v1.5.4 h1:i7eJL8qZTpSEXOPTxNKhASYpMn+8e5Q6AdndVa1dWek=
 github.com/golang/protobuf v1.5.4/go.mod h1:lnTiLA8Wa4RWRcIUkrtSVa5nRhsEGBg48fD6rSs7xps=
-github.com/gomarkdown/markdown v0.0.0-20261104120941-c01a8a138111 h1:9bE/tGCPZXCwOhHnTIZ+O+X1rEQROoe8vYZeZ4Z0BcE=
-github.com/gomarkdown/markdown v0.0.0-20261104120941-c01a8a138111/go.mod h1:zLCvXLlUnS5tvOi4hpJgzzpJsq0+dliwn85VbPh1JbQ=
+github.com/gomarkdown/markdown v0.0.0-20261105214116-27ca101938a9 h1:6R55aFy7YFLlPvrv3pzDqFca8XAO8oRXXJ5bgTdJBQI=
+github.com/gomarkdown/markdown v0.0.0-20261105214116-27ca101938a9/go.mod h1:zLCvXLlUnS5tvOi4hpJgzzpJsq0+dliwn85VbPh1JbQ=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
 github.com/google/jsonschema-go v0.4.2 h1:tmrUohrwoLZZS/P3x7ex0WAVknEkBZM46iALbcqoRA8=

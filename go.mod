@@ -4,7 +4,7 @@ go 1.27.1
 
 require (
 	github.com/anthropics/anthropic-sdk-go/v2 v2.7.0
-	github.com/gomarkdown/markdown v0.0.0-20261105214116-27ca101938a9
+	github.com/gomarkdown/markdown v0.0.0-20261107153045-a51d70be185e
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
 	golang.org/x/image v0.47.0
